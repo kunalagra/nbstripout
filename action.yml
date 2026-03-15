@@ -6,7 +6,7 @@ inputs:
     required: false
     default: '3.x'
   paths:
-    description: 'Space-separated list of paths to check (supports wildcards)'
+    description: 'Newline-separated list of paths to check (supports wildcards)'
     required: false
     default: '**/*.ipynb'
   extra-keys:
@@ -71,7 +71,8 @@ runs:
         import sys
         from pathlib import Path
 
-        patterns = sys.argv[1].split()
+        raw_input = sys.argv[1]
+        patterns = [stripped for line in raw_input.splitlines() if (stripped := line.strip())]
         seen = set()
         for pat in patterns:
             for p in sorted(Path(".").glob(pat)):
