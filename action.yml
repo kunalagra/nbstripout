@@ -1,38 +1,38 @@
-name: "NBStripout Check"
-description: "Verify that Jupyter notebooks have their output stripped"
+name: 'NBStripout Check'
+description: 'Verify that Jupyter notebooks have their output stripped'
 inputs:
   python-version:
     description: 'Python version to use (supports versions, ranges, or "3.x"). Can also use a .python-version file by setting this to an empty string and ensuring the file exists.'
     required: false
-    default: "3.x"
+    default: '3.x'
   paths:
-    description: "Space-separated list of paths to check (supports wildcards)"
+    description: 'Space-separated list of paths to check (supports wildcards)'
     required: false
-    default: "**/*.ipynb"
+    default: '**/*.ipynb'
   extra-keys:
-    description: "Extra metadata keys to strip (space-separated)"
+    description: 'Extra metadata keys to strip (space-separated)'
     required: false
-    default: ""
+    default: ''
   keep-output:
-    description: "Keep output in notebooks"
+    description: 'Keep output in notebooks'
     required: false
-    default: "false"
+    default: 'false'
   keep-count:
-    description: "Keep execution counts"
+    description: 'Keep execution counts'
     required: false
-    default: "false"
+    default: 'false'
   strip-init-cells:
-    description: "Strip init cells"
+    description: 'Strip init cells'
     required: false
-    default: "false"
+    default: 'false'
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Setup Python
       uses: actions/setup-python@v6
       with:
         python-version: ${{ inputs.python-version }}
-        pip-install: "nbstripout"
+        pip-install: 'nbstripout'
 
     - name: Check notebooks are stripped
       shell: bash
