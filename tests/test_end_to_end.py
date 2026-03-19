@@ -21,6 +21,7 @@ TEST_CASES = [
     ('test_max_size.ipynb', 'test_max_size.ipynb.expected_sequential_id', ['--max-size', '50']),
     ('test_empty_metadata.ipynb', 'test_empty_metadata.ipynb.expected', []),
     ('test_metadata.ipynb', 'test_metadata.ipynb.expected', []),
+    ('test metadata.ipynb', 'test_metadata.ipynb.expected', []),
     (
         'test_metadata.ipynb',
         'test_metadata_extra_keys.ipynb.expected',
