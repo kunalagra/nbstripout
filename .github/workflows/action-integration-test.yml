@@ -10,7 +10,9 @@ on:
         description: 'Optional branch, tag, or SHA to checkout for testing'
         required: false
         default: 'main'
-
+  push:
+    branches:
+      - '*'
 jobs:
   test-action:
     name: Test composite action behavior
