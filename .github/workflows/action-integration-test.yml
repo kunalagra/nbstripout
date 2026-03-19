@@ -1,6 +1,9 @@
 name: Action Integration Test
 
 on:
+  pull_request:
+    paths:
+      - 'action.yml'
   workflow_dispatch:
     inputs:
       ref:
