@@ -58,6 +58,7 @@ DRY_RUN_CASES = [
     ('test_metadata.ipynb', [], True),
     ('test_zeppelin.zpln', ['--mode', 'zeppelin'], True),
     ('test_nochange.ipynb', [], False),
+    ('test (nochange).ipynb', [], False),
 ]
 
 ERR_OUTPUT_CASES = [

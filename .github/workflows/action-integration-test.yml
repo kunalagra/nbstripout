@@ -12,7 +12,8 @@ on:
         default: 'main'
   push:
     branches:
-      - '*'
+      - 'main'
+
 jobs:
   test-action:
     name: Test composite action behavior
@@ -21,13 +22,16 @@ jobs:
       fail-fast: false
       matrix:
         case:
-          - name: clean fixture should pass
+          - name: clean notebook should pass
             path: tests/e2e_notebooks/test_nochange.ipynb
             expect_failure: false
-          - name: spaced filename fixture should pass
-            path: tests/e2e_notebooks/test metadata.ipynb
+          - name: clean notebook with parentheses in filename should pass
+            path: tests/e2e_notebooks/test (nochange).ipynb
             expect_failure: false
-          - name: dirty fixture should fail
+          - name: dirty notebook with space in filename should fail
+            path: tests/e2e_notebooks/test metadata.ipynb
+            expect_failure: true
+          - name: dirty notebook should fail
             path: tests/e2e_notebooks/test_metadata.ipynb
             expect_failure: true
     steps:
